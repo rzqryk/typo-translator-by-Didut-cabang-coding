@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>typo translator by Didut cabang coding</h2>
+
+<input id="text" placeholder="ketik typo">
+<button onclick="translateText()">translate</button>
+
+<p id="result"></p>
+<p id="info"></p>
+
+<script>
+
+const typoKamus = {
+"ol":{
+arti:"ok",
+keterangan:"biasanya yang typo tu orang yang ukuran jarinya lebi gede dari keyboard. contoh? didut lah boyy"
+},
+
+"oi":{
+arti:"ok, oi(literal atau makna langsung)",
+keterangan:"tergantung maksud dan makna, kalo dalam kondisi yang harusnya dia ngetik 'ok', berarti typo."
+},
+
+"jembut":{
+arti:"jemput",
+keterangan:"sebenernya lebih ke bercanda, bukan typo, jangan pernah percaya kalo dia bilang itu typo."
+}
+}
+
+function translateText(){
+
+let input = document.getElementById("text").value.toLowerCase()
+
+if(typoKamus[input]){
+document.getElementById("result").innerText =
+"arti: " + typoKamus[input].arti
+
+document.getElementById("info").innerText =
+"keterangan: " + typoKamus[input].keterangan
+}
+else{
+
+document.getElementById("result").innerText = "sorry coy, itu ga ada di kamus kita."
+document.getElementById("info").innerText = ""
+
+}
+}
+
+
+</script>
+
+</body>
+</html>

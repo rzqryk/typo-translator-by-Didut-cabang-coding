@@ -1,14 +1,94 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>typo translator by Didut cabang coding</title>
+<style>
+
+body{
+font-family:Arial;
+padding:40px;
+background:#f2f2f2;
+}
+
+input{
+width:100%;
+padding:10px;
+margin-top:10px;
+background:white;
+border:1px solid #ccc;
+}
+
+button{
+padding:10px 20px;
+margin-top:10px;
+background:#444;
+color:white;
+border:none;
+cursor:pointer;
+transition:0.2s, transform 0.1s;
+}
+
+button:hover{
+background:#ff0000;
+}
+
+button:active{
+background:#b30000;
+transform:scale(0.96);
+}
+
+.container{
+max-width:500px;
+margin:auto;
+text-align:center;
+background:#d9d9d9;
+padding:30px;
+border-radius:12px;
+}
+
+#artiBox{
+width:100%;
+padding:10px;
+margin-top:15px;
+background:white;
+border:1px solid #ccc;
+font-weight:bold;
+min-height:20px;
+text-align:left;
+}
+
+#result{
+margin-top:20px;
+font-weight:bold;
+}
+
+#info{
+color:blue;
+}
+
+.label{
+margin-top:15px;
+margin-bottom:5px;
+font-weight:bold;
+text-align:left;
+}
+
+</style>
+</head>
 <body>
+
+<div class="container">
 
 <h2>typo translator by Didut cabang coding</h2>
 
-<input id="text" placeholder="ketik typo">
-<button onclick="translateText()">translate</button>
+<input id="text" placeholder="ketik kata typo nya">
+<button id="translateBtn" onclick="translateText()">translate</button>
 
-<p id="result"></p>
+<p class="label">terjemahannya</p>
+<div id="artiBox"></div>
 <p id="info"></p>
+
+</div>
 
 <script>
 
@@ -26,28 +106,201 @@ keterangan:"tergantung maksud dan makna, kalo dalam kondisi yang harusnya dia ng
 "jembut":{
 arti:"jemput",
 keterangan:"sebenernya lebih ke bercanda, bukan typo, jangan pernah percaya kalo dia bilang itu typo."
+},
+
+"aoasih":{
+arti:"apasih",
+keterangan:"biasanya yang ngetik begitu judes tuh."
+},
+
+"aoasij":{
+arti:"apasih",
+keterangan:"biasanya yang ngetik begitu judes tuh."
+},
+
+"aoasi":{
+arti:"apasih",
+keterangan:"biasanya yang ngetik begitu judes tuh."
+},
+
+"ads":{
+arti:"ada",
+keterangan:"biasanya lebih dipake secara sengaja dibanding typo."
+},
+
+"ads ga nih":{
+arti:"berbau tentang weed",
+keterangan:"adalah pokonya wkwk"
+},
+
+"adsganih":{
+arti:"berbau tentang weed",
+keterangan:"adalah pokonya wkwk"
+},
+
+"ads g nih":{
+arti:"berbau tentang weed",
+keterangan:"adalah pokonya wkwk"
+},
+
+"ads g ni":{
+arti:"berbau tentang weed",
+keterangan:"adalah pokonya wkwk"
+},
+
+"ads ga ni":{
+arti:"berbau tentang weed",
+keterangan:"adalah pokonya wkwk"
+},
+
+"ads g n":{
+arti:"berbau tentang weed",
+keterangan:"adalah pokonya wkwk"
+},
+
+"ads g":{
+arti:"berbau tentang weed",
+keterangan:"adalah pokonya wkwk"
+},
+
+"ads ga nih":{
+arti:"berbau tentang weed",
+keterangan:"adalah pokonya wkwk"
+},
+
+"mampua":{
+arti:"mampus",
+keterangan:"ketawain aja der, lagi kesel banget itu orangnya ampe typo WKWK."
+},
+
+"mmpa":{
+arti:"mampus",
+keterangan:"ketawain aja der, lagi kesel banget itu orangnya ampe typo WKWK."
+},
+
+"mps":{
+arti:"mampus",
+keterangan:"mpss ah ahh"
+},
+
+"boboikep":{
+arti:"boboiboy",
+keterangan:"cuman plesetan biasa kok."
+},
+
+"ajh":{
+arti:"ajh/aja(literal atau makna langsung), ajg, anjing",
+keterangan:"kalo niatnya ngomong ajg dan sejenisnya, berarti typo, ketawain aja."
+},
+
+"bilag":{
+arti:"bilang",
+keterangan:"typo umum inimah"
+},
+
+"kontol":{
+arti:"ya kontol lah, apalagi jing",
+keterangan:"lu lah yang kontol." 
+},
+
+"memek":{
+arti:"ya memek lah, apalagi jing",
+keterangan:"lu lah yang memek."
+},
+
+"malmingminggu":{
+arti:"malming, malam minggu, malem minggu",
+keterangan:"ini jatohnya lebih ke spontan yaa temen temen."
+},
+
+"malming minggu":{
+arti:"malming, malam minggu, malem minggu",
+keterangan:"ini jatohnya lebih ke spontan yaa temen temen."
+},
+
+"bukber sendiri":{
+arti:"bisa bukber tapi cuman circle tertentu, atau bisa juga buka puasa sendiri",
+keterangan:"ini jatohnya lebih ke spontan yaa temen temen."
+},
+
+"es teh anget":{
+arti:"hanya Tuhan yang tau artinya",
+keterangan:"yang ngetik/ngomong ini kayanya iq dia setara monyet, tapi ini jatohnya spontan juga yaa."
+},
+
+"es teh hangat":{
+arti:"hanya Tuhan yang tau artinya",
+keterangan:"yang ngetik/ngomong ini kayanya iq dia setara monyet, tapi ini jatohnya spontan juga yaa."
+},
+
+"mbuts":{
+arti:"jembut(literal tapi lebih ke spontan dan dijadiin panggilan)",
+keterangan:"jawab balik lagi aje 'ape mbuts', gitu."
+},
+
+"mbut":{
+arti:"jembut(literal tapi lebih ke spontan dan dijadiin panggilan)",
+keterangan:"jawab balik lagi aje 'ape mbut', gitu."
+},
+
+"der":{
+arti:"brader, brother, bro, coy",
+keterangan:"panggilan ajasih inimah"
+},
+
+"konyol":{
+arti:"kontol, konyol(literal)",
+keterangan:"sebenernya mah lebih sering literal daripada typo. tapi, ada juuga yang bermaksud ngetik/ngomong 'kontol'."
 }
 }
 
 function translateText(){
 
-let input = document.getElementById("text").value.toLowerCase()
+let input = document.getElementById("text").value.toLowerCase().trim()
+
+document.getElementById("text").addEventListener("input", function(){
+if(input === ""){
+document.getElementById("artiBox").innerText = ""
+document.getElementById("info").innerText = ""
+}
+});
+
+if(input === ""){
+document.getElementById("artiBox").innerText = ""
+document.getElementById("info").innerText = ""
+return
+}
 
 if(typoKamus[input]){
-document.getElementById("result").innerText =
-"arti: " + typoKamus[input].arti
+document.getElementById("artiBox").innerText =
+typoKamus[input].arti
 
 document.getElementById("info").innerText =
 "keterangan: " + typoKamus[input].keterangan
+
 }
 else{
 
-document.getElementById("result").innerText = "sorry coy, itu ga ada di kamus kita."
+document.getElementById("artiBox").innerText = "sorry coy, itu ga ada di kamus kita."
 document.getElementById("info").innerText = ""
 
 }
+
 }
 
+document.getElementById("text").addEventListener("keypress", function(event) {
+if (event.key === "Enter") {
+let btn = document.getElementById("translateBtn")
+btn.style.background = "#ff0000"
+
+setTimeout(function(){
+btn.style.background = "" 
+},120)
+
+translateText();
+
+}
+});
 
 </script>
 
